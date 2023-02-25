@@ -21,14 +21,7 @@ from pymongo import MongoClient
 
 vinylArr = []
 
-def getDB():
-    CONNECTION_STRING = "mongodb+srv://Pacforever:Pacforever@cluster0.xfgz9lp.mongodb.net/?retryWrites=true&w=majority"
-    client = MongoClient(CONNECTION_STRING)
-    return client.get_database('webscrapingDb')
 
-db = getDB()
-
-uoTable = db['uo']
 
 cookies = {
     'TealeafAkaSid': 'mh7cYCXaQAo5_tQqQAzb89Hydi38el3Q',
