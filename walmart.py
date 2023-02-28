@@ -2,6 +2,21 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
+class Vinyl:
+    def __init__(self, title = "N/A", artist = "N/A", price = "N/A", image = "N/A", url = "N/A", type = "N/A"):
+        self.title = title
+        self.artist = artist
+        self.price = price
+        self.image = image
+        self.url = url
+        self.type = type
+
+    def __str__(self):
+        return f'title: {self.title}\n Artist: {self.artist} \n Price: {self.price} \n Image: {self.image} \n URL: {self.url} \n Type: {self.type}'
+
+    def __repr__(self):
+        return f'{self.title} by {self.artist}'
+
 cookies = {
     'brwsr': 'b682b7b2-16f2-11ed-905d-db42317697d2',
     'ACID': '9503cb9c-db52-40bf-a005-4b182c4907fc',
@@ -86,7 +101,23 @@ def formatToJson(rawResponse, start = 0, end = 0):
             return
             
 def findProducts(formattedResponse):
-  print(formattedResponse['props']['pageProps']['initialData'].keys())
+  for product in formattedResponse['props']['pageProps']['initialData']['searchResult']['itemStacks'][0]['items']:
+    productInfo = product['name'].split('-')
+    
+    if(len(productInfo) == 1):
+        vinyl = Vinyl(title = productInfo[0])
+    elif(len(productInfo) == 2):
+        vinyl = Vinyl(title = productInfo[1], artist = productInfo[0])
+    elif(len(productInfo) == 3):
+        vinyl = Vinyl(title = productInfo[1], artist = productInfo[0], type = productInfo[2])
+    else:
+        vinyl = Vinyl()
+    
+    print(vinyl)
+
+        
+
+    
 
 formatToJson(rawResponse)
 
