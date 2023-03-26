@@ -158,6 +158,6 @@ def insertVinylInfo(data, offset, token):
     except:
         uoTable.delete_many({})
         uoTable.insert_many(vinylArr)
-        print(done)
+        print('done')
     
 getVinylJson(0,response2.json()["authToken"])
