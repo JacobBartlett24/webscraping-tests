@@ -2,6 +2,8 @@ import time
 import requests
 from pymongo import MongoClient
 
+print("start")
+
 cookies2 = {
     'localredirected': 'False',
     'siteId': 'uo-us',
