@@ -148,6 +148,7 @@ def insertVinylInfo(data, offset, token):
       vinylArr.append(vinyl)
       
     if offset == 2000:
+        uoTable.delete_many({})
         uoTable.insert_many(vinylArr)
         return
     print(offset)
