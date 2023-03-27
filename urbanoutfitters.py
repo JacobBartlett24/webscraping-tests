@@ -1,3 +1,4 @@
+import json
 import time
 import requests
 from pymongo import MongoClient
@@ -146,7 +147,9 @@ def insertVinylInfo(data, offset, token):
         'title': record['allMeta']['tile']['product']['displayName'],
         'url': f"https://www.urbanoutfitters.com/shop/{record['allMeta']['tile']['product']['productSlug']}",
         'price': str(record['allMeta']['tile']['skuInfo']['listPriceLow']),
+        'image': f"https://images.urbndata.com/is/image/UrbanOutfitters/{record['allMeta']['tile']['faceOutImage']}"
       }
+      print(json.dumps(record, indent=2))
       vinylArr.append(vinyl)
       
     if offset == 2000:
