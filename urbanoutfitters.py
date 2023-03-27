@@ -83,13 +83,18 @@ response2 = requests.put(
     url = 'https://www.urbanoutfitters.com/slipstream/api/token/v0/uo-us/auth' 
 )
 
-
 class Vinyl:
     def __init__(self, title, price, url):
         self.title = title
         self.price = price
         self.url = url
 
+def getAuthToken():
+    response = requests.get(
+        'https://www.urbanoutfitters.com/slipstream/api/token/v0/uo-us/auth'
+    )
+
+    return response.cookies['authToken']
 
 def getDB():
     CONNECTION_STRING = "mongodb+srv://Pacforever:Pacforever@cluster0.xfgz9lp.mongodb.net/?retryWrites=true&w=majority"
