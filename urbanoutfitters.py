@@ -83,7 +83,7 @@ response2 = requests.put(
     url = 'https://www.urbanoutfitters.com/slipstream/api/token/v0/uo-us/auth' 
 )
 
-print(response2.status_code)
+print(f'Auth Token Response: {response2.status_code} {response2.reason}')
 
 class Vinyl:
     def __init__(self, title, price, url):
@@ -143,6 +143,7 @@ def getVinylJson(offset,token):
     },
     )
     
+    print(f'Urban Response Code: {response.status_code} {response.reason}')
     insertVinylInfo(response.json(), offset, token)
 #{record['allMeta']['tile']['product']['productSlug']}
 
