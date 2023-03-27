@@ -108,6 +108,7 @@ uoTable = db['uo']
 vinylArr = []
 
 def getVinylJson(offset,token):
+    time.sleep(10)
     response = requests.get(
     'https://www.urbanoutfitters.com/api/catalog/v2/uo-us/pools/US_DIRECT/navigation-items/vinyl-records/products',
     params={
@@ -145,7 +146,6 @@ def getVinylJson(offset,token):
     
     print(f'Urban Response Code: {response.status_code} {response.reason}')
     insertVinylInfo(response.json(), offset, token)
-#{record['allMeta']['tile']['product']['productSlug']}
 
 def insertVinylInfo(data, offset, token):
 
@@ -163,7 +163,6 @@ def insertVinylInfo(data, offset, token):
         return
     print(offset)
 
-    time.sleep(10)
     try:
         getVinylJson(offset + 100, token)
     except:
