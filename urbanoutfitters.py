@@ -83,6 +83,8 @@ response2 = requests.put(
     url = 'https://www.urbanoutfitters.com/slipstream/api/token/v0/uo-us/auth' 
 )
 
+print(response2.status_code)
+
 class Vinyl:
     def __init__(self, title, price, url):
         self.title = title
