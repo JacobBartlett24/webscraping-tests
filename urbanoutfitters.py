@@ -62,14 +62,6 @@ headers2 = {
     'sec-fetch-site': 'same-origin',
     'sec-gpc': '1',
     'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36',
-    'x-urbn-channel': 'web',
-    'x-urbn-country': 'NL',
-    'x-urbn-currency': 'USD',
-    'x-urbn-experience': 'ss',
-    'x-urbn-geo-region': 'US-NV',
-    'x-urbn-language': 'en-US',
-    'x-urbn-primary-data-center-id': 'US-NV',
-    'x-urbn-site-id': 'uo-us',
 }
 
 json_data2 = {
